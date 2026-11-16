@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bitling</title>
+  <meta name="description" content="Bitling — a pocket virtual pet that lives in your browser.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1 class="title">Bitling</h1>
+    <p class="tagline">a pocket pet that lives in your browser</p>
+
+    <div class="device" id="device" data-shell="coral">
+      <div class="loop" aria-hidden="true"></div>
+      <div class="face">
+        <div class="bezel">
+          <div class="lcd">
+            <div class="icons">
+              <button class="icon" data-icon="food" aria-label="Food"><canvas></canvas></button>
+              <button class="icon" data-icon="light" aria-label="Light"><canvas></canvas></button>
+              <button class="icon" data-icon="play" aria-label="Play"><canvas></canvas></button>
+              <button class="icon" data-icon="medicine" aria-label="Medicine"><canvas></canvas></button>
+            </div>
+            <canvas id="lcd" role="img" aria-label="Pet screen"></canvas>
+            <div class="icons">
+              <button class="icon" data-icon="clean" aria-label="Clean"><canvas></canvas></button>
+              <button class="icon" data-icon="status" aria-label="Status"><canvas></canvas></button>
+              <button class="icon" data-icon="discipline" aria-label="Discipline"><canvas></canvas></button>
+              <span class="icon" data-icon="attention" aria-label="Attention"><canvas></canvas></span>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="btn" data-btn="A" aria-label="Button A (select)"><span>A</span></button>
+          <button class="btn" data-btn="B" aria-label="Button B (confirm)"><span>B</span></button>
+          <button class="btn" data-btn="C" aria-label="Button C (cancel)"><span>C</span></button>
+        </div>
+      </div>
+    </div>
+
+    <p id="msg" class="msg" aria-live="polite"></p>
+
+    <section class="panel">
+      <div class="row">
+        <span class="label">Speed</span>
+        <div class="seg">
+          <button data-speed="1">1×</button>
+          <button data-speed="10">10×</button>
+          <button data-speed="60">60×</button>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Shell</span>
+        <div class="swatches">
+          <button data-shell="coral" aria-label="Coral shell"></button>
+          <button data-shell="mint" aria-label="Mint shell"></button>
+          <button data-shell="grape" aria-label="Grape shell"></button>
+          <button data-shell="sun" aria-label="Sun shell"></button>
+        </div>
+      </div>
+      <div class="row">
+        <label class="label" for="sound">Sound</label>
+        <input type="checkbox" id="sound" class="toggle">
+      </div>
+
+      <details>
+        <summary>How to play</summary>
+        <ul>
+          <li><b>A</b> moves through the icons, <b>B</b> uses the selected one, <b>C</b> cancels. You can also tap an icon twice.
+            Keyboard: <kbd>A</kbd>/<kbd>S</kbd>/<kbd>D</kbd> or <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd>.</li>
+          <li><b>Food:</b> meals fill hunger hearts; snacks cheer it up but add weight. Too many snacks can make it ill.</li>
+          <li><b>Play:</b> guess which way it will hop (A = left, B = right). Win 3 of 5 rounds for a happy heart.</li>
+          <li><b>Clean</b> up poop quickly, and give <b>medicine</b> when you see the skull.</li>
+          <li>It sleeps at night: turn the <b>light</b> off so it can rest.</li>
+          <li>When it acts up for no reason, use <b>discipline</b>. Scolding it for nothing just makes it sad.</li>
+          <li>The bell lights up when it needs you. Ignoring it for 15 minutes counts as a care mistake.
+            How well you look after it decides what it grows into.</li>
+          <li>Press <b>B</b> with nothing selected to see the clock. Time keeps passing while the page is closed.</li>
+        </ul>
+      </details>
+
+      <button id="reset" class="reset">Start over</button>
+    </section>
+  </main>
+
+  <script src="src/sprites.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>
